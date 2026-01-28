@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.tcpioneer.org/sitemap.xml
+Sitemap: https://www.tcpioneer.org/image-sitemap.xml

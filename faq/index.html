@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="TC Pioneer">
+  <meta name="robots" content="index, follow">
+
+  <title>Cybersecurity FAQ | TC Pioneer</title>
+  <meta name="description"
+    content="TC Pioneer empowers future cybersecurity leaders through ethical hacking education, cybersecurity tools, and cyber awareness programs.">
+  <link rel="canonical" href="https://tcpioneer.org/faq">
+
+  <link rel="icon" href="../favicon/favicon.ico" type="image/x-icon">
+
+  <meta property="og:title" content="Cybersecurity FAQ | TC Pioneer">
+  <meta property="og:description" content="Cybersecurity education and awareness by TC Pioneer.">
+  <meta property="og:url" content="https://tcpioneer.org/faq">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tcpioneer.org/images/tcp-logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cybersecurity FAQ | TC Pioneer">
+  <meta name="twitter:description" content="Cybersecurity education and awareness by TC Pioneer.">
+  <meta name="twitter:image" content="https://tcpioneer.org/images/tcp-logo.png">
+
+  <script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ "name":"TC Pioneer – Empowering Future Cybersecurity Leaders",
+ "url":"https://tcpioneer.org",
+ "logo":"https://tcpioneer.org/images/tcp-logo.png",
+ "sameAs":[
+  "https://facebook.com/tcpioneerorg",
+  "https://instagram.com/tcpioneerorg",
+  "https://linkedin.com/company/tcpioneerorg",
+  "https://t.me/tcpioneerorg",
+  "https://discord.gg/CjW2TraS"
+ ]
+}
+</script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body>
+
+  <!-- Background layers -->
+  <div id="gradient"></div>
+  <div id="gradient2"></div>
+  <div id="pattern"></div>
+
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+      <div class="logo">TC@Pioneer</div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="../about/organization/">Organization</a></li>
+            <li><a href="../about/services/">Services</a></li>
+            <li><a href="../about/events/">Events</a></li>
+            <li><a href="../about/team/">Team</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a href="../resources/roadmaps/">Roadmap</a></li>
+            <li><a href="../resources/guides/">Guides</a></li>
+            <li><a href="../resources/blogs/">Blogs</a></li>
+            <li><a href="../resources/tools/">Tools</a></li>
+          </ul>
+        </li>
+
+        <li><a href="../faq/">FAQ</a></li>
+        <li><a href="../contact/">Contact</a></li>
+
+      </ul>
+
+      <div class="nav-cta desktop-only">
+        <a href="../joinus/" class="join-btn">Join Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 px-6 bg-black min-h-screen">
+
+    <div class="max-w-4xl mx-auto py-16">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-light text-white mb-4 flex items-center justify-center gap-3">
+          <span
+            class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-black shadow-[0_0_25px_rgba(139,92,246,0.7)]">
+            <i class="fas fa-circle-question"></i>
+          </span>
+          Frequently Asked Questions
+        </h1>
+        <p class="text-gray-400 text-lg">Everything you need to know about TC Pioneer</p>
+      </div>
+
+      <!-- FAQ Container -->
+      <div class="space-y-6">
+
+        <!-- FAQ ITEM -->
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-shield-halved text-violet-400"></i>
+              <span>What is TC Pioneer?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              TC Pioneer is a student-driven cybersecurity community focused on learning, awareness, and ethical digital
+              practices.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-user-plus text-violet-400"></i>
+              <span>How can I join?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              You can join via our Join Us page by filling out the membership form.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-calendar-check text-violet-400"></i>
+              <span>What activities do you organize?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              We conduct workshops, CTFs, seminars, awareness sessions, bootcamps, and live demos.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-users text-violet-400"></i>
+              <span>Who can join the community?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              Anyone interested in cybersecurity, whether beginner or expert, can join.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-money-bill text-violet-400"></i>
+              <span>Is there any membership fee?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              No. TC Pioneer is completely free and community-driven.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-seedling text-violet-400"></i>
+              <span>Can beginners join?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              Yes! We provide learning resources, guidance, and mentorship for beginners.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-ban text-red-400"></i>
+              <span>Do you support illegal hacking?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              Absolutely not. We strictly follow ethical hacking principles.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-share-nodes text-violet-400"></i>
+              <span>Can I invite others?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              Yes, we encourage spreading awareness and inviting others.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-life-ring text-violet-400"></i>
+              <span>How can I get help?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              You can reach out to mentors via our community channels.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button onclick="toggleFAQ(this)" class="faq-btn">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-scale-balanced text-violet-400"></i>
+              <span>What happens if someone violates rules?</span>
+            </div>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content hidden">
+            <p>
+              Any unethical or illegal behavior leads to removal.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- footer -->
+  <footer class="relative px-6 pt-24 pb-12 overflow-hidden">
+
+    <!-- Glass background -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-xl border-t border-white/10"></div>
+
+    <!-- Glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(139,92,246,0.18),transparent_65%)]">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <!-- Main Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <h3 class="text-white tracking-widest text-lg mb-4">
+            TC Pioneer
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+            A student-driven cybersecurity initiative focused on real-world skills,
+            ethical hacking, and digital resilience.
+          </p>
+
+          <p class="mt-5 text-gray-500 text-sm">
+            Birgunj, Nepal
+          </p>
+        </div>
+
+        <!-- About -->
+        <div>
+          <p class="text-white text-xs tracking-[0.3em] uppercase mb-4">
+            About
+          </p>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li><a href="/about/organization" class="hover:text-violet-400 transition">Organization</a></li>
+            <li><a href="/about/services" class="hover:text-violet-400 transition">Services</a></li>
+            <li><a href="/about/events" class="hover:text-violet-400 transition">Events</a></li>
+            <li><a href="/about/team" class="hover:text-violet-400 transition">Team</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <p class="text-white text-xs tracking-[0.3em] uppercase mb-4">
+            Resources
+          </p>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li><a href="/resources/roadmaps" class="hover:text-violet-400 transition">Roadmaps</a></li>
+            <li><a href="/resources/guides" class="hover:text-violet-400 transition">Guides</a></li>
+            <li><a href="/resources/blogs" class="hover:text-violet-400 transition">Blogs</a></li>
+            <li><a href="/resources/tools" class="hover:text-violet-400 transition">Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <p class="text-white text-xs tracking-[0.3em] uppercase mb-4">
+            Stay Updated
+          </p>
+
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">
+            Cyber updates. No spam.
+          </p>
+
+          <form action="https://formspree.io/f/xvzzvlap" method="POST" class="flex gap-2">
+            <input type="email" name="email" placeholder="Your email" required
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-violet-400 transition" />
+            <button type="submit"
+              class="px-5 py-3 rounded-lg bg-violet-500 text-black hover:bg-violet-400 transition shadow-[0_0_25px_rgba(139,92,246,0.6)]">
+              →
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-white/10 pt-8 flex flex-col gap-8">
+
+        <!-- Bottom Row -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <p class="text-gray-500 text-sm text-center md:text-left">
+            © <span id="year"></span> TC Pioneer. All rights reserved.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-xs tracking-[0.3em] uppercase">
+            <a href="/privacy" class="hover:text-violet-400 transition">Privacy</a>
+            <a href="/terms" class="hover:text-violet-400 transition">Terms</a>
+            <a href="/contact" class="hover:text-violet-400 transition">Contact</a>
+          </div>
+
+          <div class="flex gap-6 text-gray-400 text-xs tracking-[0.3em] uppercase">
+            <a href="https://www.instagram.com/tcpioneerorg" class="hover:text-violet-400 transition">Instagram</a>
+            <a href="https://www.linkedin.com/company/tcpioneerorg"
+              class="hover:text-violet-400 transition">LinkedIn</a>
+            <a href="https://www.facebook.com/tcpioneerorg" class="hover:text-violet-400 transition">Facebook</a>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
