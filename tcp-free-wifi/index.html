@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>TCP FREE WIFI | Public Wi-Fi Security Awareness – TC Pioneer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="TCP FREE WIFI is an interactive cyber security awareness experience by TC Pioneer, demonstrating the risks of free public Wi-Fi and how users can stay safe online.">
+
+    <meta name="keywords"
+        content="tcp free wifi, free wifi security, public wifi risks, cyber security awareness, qr code wifi attack, man in the middle attack, tc pioneer">
+
+    <meta name="author" content="TC Pioneer">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://tcpioneer.org/tcp-free-wifi">
+
+    <!-- ================= FAVICONS ================= -->
+    <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+
+    <!-- ================= OPEN GRAPH ================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TCP FREE WIFI – Cyber Security Awareness by TC Pioneer">
+    <meta property="og:description"
+        content="A safe cyber awareness demonstration showing how attackers exploit free public Wi-Fi. Created by TC Pioneer.">
+    <meta property="og:url" content="https://tcpioneer.org/tcp-free-wifi">
+    <meta property="og:image" content="https://tcpioneer.org/images/seo-preview.png">
+    <meta property="og:site_name" content="TC Pioneer">
+
+    <!-- ================= TWITTER / X ================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TCP FREE WIFI – Cyber Security Awareness">
+    <meta name="twitter:description" content="An interactive demo by TC Pioneer showing real-world public Wi-Fi risks.">
+    <meta name="twitter:image" content="https://tcpioneer.org/images/seo-preview.png">
+
+    <!-- ================= RAJDHANI FONT ================= -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ================= STRUCTURED DATA ================= -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "TC Pioneer",
+  "alternateName": "TCP FREE WIFI",
+  "url": "https://tcpioneer.org",
+  "description": "TC Pioneer is a cyber security organization providing education and awareness through interactive demonstrations.",
+  "sameAs": [
+    "https://facebook.com/tcpioneerorg",
+    "https://instagram.com/tcpioneerorg",
+    "https://linkedin.com/company/tcpioneerorg"
+  ]
+}
+</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif
+        }
+
+        body {
+            background: #020005;
+            color: #ff4d4d;
+            min-height: 100vh;
+        }
+
+        /* WATERMARK */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: url("../images/tcp-logo.png") center no-repeat;
+            background-size: 40vw;
+            opacity: 0.26;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        /* BLUR NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 0, 20, 0.55);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 77, 77, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+        }
+
+        .nav span {
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #ffb4b4
+        }
+
+        .nav a {
+            color: #00ff9c;
+            text-decoration: none;
+            border: 1px solid rgba(0, 255, 156, 0.7);
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* CONTENT */
+        .container {
+            padding: 110px 6% 60px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .sub {
+            text-align: center;
+            color: #fca5a5;
+            font-size: 1.1rem;
+        }
+
+        /* TERMINAL */
+        .terminal {
+            margin-top: 3rem;
+            background: #000;
+            border: 1px solid rgba(255, 77, 77, 0.35);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 0 45px rgba(255, 0, 0, 0.15);
+        }
+
+        .line {
+            color: #00ff9c;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeIn 0.25s forwards;
+        }
+
+        .red {
+            color: #ff4d4d
+        }
+
+        .gray {
+            color: #9ca3af
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1
+            }
+        }
+
+        /* DISCLAIMER + SAFETY */
+        .disclaimer,
+        .safety {
+            display: none;
+            margin-top: 3rem;
+            border-radius: 16px;
+            padding: 26px;
+        }
+
+        .disclaimer {
+            background: rgba(0, 255, 156, 0.08);
+            border: 1px solid rgba(0, 255, 156, 0.3);
+            color: #d1fae5;
+        }
+
+        .safety {
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #e9d5ff;
+        }
+
+        .safety h2 {
+            color: #c084fc;
+            margin-bottom: 1rem
+        }
+
+        .safety ul {
+            margin-left: 1rem;
+            line-height: 1.9
+        }
+
+        .safety li {
+            margin-bottom: 0.6rem
+        }
+
+        .safety strong {
+            color: #facc15
+        }
+
+        .btn {
+            margin-top: 1.5rem;
+            padding: 12px 28px;
+            background: #00ff9c;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #7dd3fc;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="position:absolute;left:-9999px;">
+        TCP FREE WIFI – Public Wi-Fi Cyber Security Awareness by TC Pioneer
+    </h2>
+
+    <div class="nav">
+        <span>TCP | FREE_WIFI</span>
+        <a href="https://tcpioneer.org" target="_blank">Main Site</a>
+    </div>
+
+    <div class="container">
+        <h1>⚠️ YOU ARE COMPROMISED</h1>
+        <p class="sub">
+            Unsecured network detected.<br>
+            Device fingerprinting successful.
+        </p>
+
+        <div class="terminal" id="terminal"></div>
+
+        <div class="disclaimer" id="disclaimer">
+            <strong>Relax.</strong><br><br>
+            This was a <b>Cyber Awareness Demonstration</b>.<br>
+            No real data was collected or transmitted.<br><br>
+            <button class="btn" onclick="showSafety()">Continue</button>
+        </div>
+
+        <div class="safety" id="safety">
+            <h2>🛡️ How to Stay Safe on Public Wi-Fi</h2>
+            <ul>
+                <li>❌ Never trust random <strong>Free Wi-Fi</strong> QR codes</li>
+                <li>🔐 Avoid banking, payments & OTPs</li>
+                <li>📶 Disable auto-connect</li>
+                <li>🛡️ Use trusted VPNs only</li>
+                <li>👀 Verify Wi-Fi with staff</li>
+            </ul>
+            <button class="btn" onclick="location.reload()">Restart Demo</button>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 TC Pioneer • Awareness Through Experience
+    </footer>
+
+    <script>
+        /* ---------- AUDIO ---------- */
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let soundEnabled = false;
+
+        function enableSound() {
+            audioCtx.resume();
+            soundEnabled = true;
+            document.removeEventListener("click", enableSound);
+            document.removeEventListener("scroll", enableSound);
+        }
+
+        document.addEventListener("click", enableSound);
+        document.addEventListener("scroll", enableSound);
+
+        function keySound() {
+            if (!soundEnabled) return;
+            const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+            o.frequency.value = 800; g.gain.value = 0.04;
+            o.connect(g); g.connect(audioCtx.destination);
+            o.start(); o.stop(audioCtx.currentTime + 0.03);
+        }
+
+        /* ---------- FAKE INTEL ---------- */
+        const ip = [...Array(4)].map(() => Math.floor(Math.random() * 255)).join('.');
+        const cities = ["Hyderabad", "Bengaluru", "Chennai", "Mumbai", "Delhi", "Pune"];
+        const city = cities[Math.floor(Math.random() * cities.length)];
+
+        function getBrowser() {
+            const ua = navigator.userAgent;
+            if (ua.includes("Edg")) return "Microsoft Edge";
+            if (ua.includes("Chrome")) return "Google Chrome";
+            if (ua.includes("Firefox")) return "Mozilla Firefox";
+            if (ua.includes("Safari")) return "Safari";
+            return "Unknown Browser";
+        }
+
+        function getOS() {
+            const p = navigator.platform.toLowerCase();
+            if (p.includes("win")) return "Windows";
+            if (p.includes("mac")) return "macOS";
+            if (p.includes("linux")) return "Linux";
+            if (/android/i.test(navigator.userAgent)) return "Android";
+            if (/iphone|ipad/i.test(navigator.userAgent)) return "iOS";
+            return "Unknown OS";
+        }
+
+        const logs = [
+            `Assigning IP address... <span class="gray">${ip}</span>`,
+            `Location resolved... <span class="gray">${city}</span>`,
+            `Browser detected... <span class="gray">${getBrowser()}</span>`,
+            `Operating System... <span class="gray">${getOS()}</span>`,
+            `Language... <span class="gray">${navigator.language}</span>`,
+            `Screen resolution... <span class="gray">${screen.width} × ${screen.height}</span>`,
+            `Cookies enabled... <span class="gray">${navigator.cookieEnabled}</span>`,
+            `<span class="red">CRITICAL:</span> Credentials interception possible`
+        ];
+
+        let i = 0;
+        const terminal = document.getElementById("terminal");
+
+        function typeLogs() {
+            if (i < logs.length) {
+                const l = document.createElement("div");
+                l.className = "line";
+                l.innerHTML = "> " + logs[i];
+                terminal.appendChild(l);
+                keySound();
+                i++;
+                setTimeout(typeLogs, 500);
+            } else {
+                document.getElementById("disclaimer").style.display = "block";
+            }
+        }
+
+        function showSafety() {
+            document.getElementById("safety").style.display = "block";
+            document.getElementById("safety").scrollIntoView({ behavior: "smooth" });
+        }
+
+        /* AUTO START */
+        typeLogs();
+    </script>
+
+</body>
+
+</html>
