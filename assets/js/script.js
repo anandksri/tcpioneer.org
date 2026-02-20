@@ -9,50 +9,63 @@ tailwind.config = {
         }
     }
 }
-
+// hex pattern background
 const patternElement = document.getElementById("pattern");
-const gradientElement = document.getElementById("gradient");
-const gradient2Element = document.getElementById("gradient2");
 
-// Violet outline-only hex SVG
+/* ===== HEX SVG ===== */
 const hexSVG = `
-<svg width="87" height="100" viewBox="0 0 87 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="87" height="100" viewBox="0 0 87 100" fill="none"
+ xmlns="http://www.w3.org/2000/svg">
   <path d="M2.2 26.15L43.5 2.3L84.8 26.15V73.85L43.5 97.7L2.2 73.85V26.15Z"
-        stroke="rgba(139,92,246,0.7)"
-        stroke-width="1.6"
+        stroke="rgba(139,92,246,0.5)"
+        stroke-width="1.4"
         fill="none"/>
 </svg>
 `;
 
 const encodedHex = `data:image/svg+xml;base64,${btoa(hexSVG)}`;
 
+let hexElements = [];
+
+/* ===== CREATE GRID ===== */
 function createPattern() {
     patternElement.innerHTML = "";
+    hexElements = [];
 
-    const hexWidth = 65;
-    const hexHeight = 55;
-    const buffer = 4; // overscan
+    const hexWidth = 70;
+    const hexHeight = 60;
+    const buffer = 4;
 
     const countY = Math.ceil(window.innerHeight / hexHeight) + buffer;
     const countX = Math.ceil(window.innerWidth / hexWidth) + buffer;
 
     for (let i = 0; i < countY; i++) {
         for (let j = 0; j < countX; j++) {
-            const hexagon = document.createElement("div");
 
-            hexagon.style.position = "absolute";
-            hexagon.style.width = "56px";
-            hexagon.style.height = "64px";
-            hexagon.style.background = `url('${encodedHex}') no-repeat`;
-            hexagon.style.backgroundSize = "contain";
-            hexagon.style.opacity = "0.75";
+            const hex = document.createElement("div");
+
+            hex.style.position = "absolute";
+            hex.style.width = "60px";
+            hex.style.height = "70px";
+            hex.style.background = `url('${encodedHex}') no-repeat`;
+            hex.style.backgroundSize = "contain";
+            hex.style.opacity = "0.25";
+            hex.style.transition = "all 0.1s ease-out";
 
             const offsetX = (i % 2) * (hexWidth / 2);
+            const top = (i - 2) * (hexHeight - 8);
+            const left = (j - 2) * hexWidth + offsetX;
 
-            hexagon.style.top = `${(i - 2) * (hexHeight - 5)}px`;
-            hexagon.style.left = `${(j - 2) * hexWidth + offsetX}px`;
+            hex.style.top = `${top}px`;
+            hex.style.left = `${left}px`;
 
-            patternElement.appendChild(hexagon);
+            patternElement.appendChild(hex);
+
+            hexElements.push({
+                el: hex,
+                centerX: left + 30,
+                centerY: top + 35
+            });
         }
     }
 }
@@ -60,30 +73,46 @@ function createPattern() {
 createPattern();
 window.addEventListener("resize", createPattern);
 
-// Seamless ambient animation
-let t = 0;
+/* ===== MOUSE INTERACTION ===== */
+let mouseX = -9999;
+let mouseY = -9999;
 
-function animateBackground() {
-    const driftX = Math.sin(t * 0.001) * 40;
-    const driftY = Math.cos(t * 0.0012) * 30;
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 
-    const glow1X = Math.sin(t * 0.0008) * 120;
-    const glow1Y = Math.cos(t * 0.0006) * 100;
+function animateHexInteraction() {
+    hexElements.forEach(hex => {
+        const dx = mouseX - hex.centerX;
+        const dy = mouseY - hex.centerY;
 
-    const glow2X = Math.cos(t * 0.0004) * 180;
-    const glow2Y = Math.sin(t * 0.0003) * 140;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const maxDistance = 180;
 
-    patternElement.style.transform = `translate(${driftX}px, ${driftY}px)`;
+        if (distance < maxDistance) {
+            const intensity = 1 - (distance / maxDistance);
 
-    gradientElement.style.transform = `translate(calc(-50% + ${glow1X}px), calc(-50% + ${glow1Y}px))`;
-    gradient2Element.style.transform = `translate(calc(-50% + ${glow2X}px), calc(-50% + ${glow2Y}px))`;
+            // Add blinking class
+            hex.el.classList.add("blink");
 
-    t++;
-    requestAnimationFrame(animateBackground);
+            // Scale and shadow effect
+            hex.el.style.transform = `scale(${1 + intensity * 0.5})`;
+            hex.el.style.filter =
+                `drop-shadow(0 0 ${25 * intensity}px rgba(139,92,246,0.9))`;
+        } else {
+            // Remove blink effect
+            hex.el.classList.remove("blink");
+            hex.el.style.opacity = 0.25;
+            hex.el.style.transform = "scale(1)";
+            hex.el.style.filter = "none";
+        }
+    });
+
+    requestAnimationFrame(animateHexInteraction);
 }
 
-animateBackground();
-
+animateHexInteraction();
 
 // navbar 
 const hamburger = document.getElementById("hamburger");

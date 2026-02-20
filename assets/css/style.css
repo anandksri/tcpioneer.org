@@ -27,41 +27,22 @@ body {
 
 }
 
-/* Background layers */
+/* Hex Pattern Layer */
 #pattern {
     position: fixed;
     inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.4;
-}
-
-#gradient {
-    /* background: radial-gradient(circle, rgba(139, 92, 246, 0.35), transparent 60%); */
-    width: 650px;
-    height: 650px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 1;
-    filter: blur(50px);
-    opacity: 0.9;
-}
-
-#gradient2 {
-    /* background: radial-gradient(circle, rgba(139, 92, 246, 0.18), transparent 65%); */
-    width: 900px;
-    height: 900px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 0;
-    filter: blur(70px);
-    opacity: 0.7;
+}
+
+/* Blink Animation (slower now) */
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.25; }
+}
+
+.blink {
+    animation: blink 3s linear infinite; /* 3 second per blink */
 }
 
 /* Glass Navbar */
