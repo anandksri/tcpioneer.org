@@ -17,7 +17,7 @@ const hexSVG = `
 <svg width="87" height="100" viewBox="0 0 87 100" fill="none"
  xmlns="http://www.w3.org/2000/svg">
   <path d="M2.2 26.15L43.5 2.3L84.8 26.15V73.85L43.5 97.7L2.2 73.85V26.15Z"
-        stroke="rgba(139,92,246,0.5)"
+        stroke="rgba(138, 92, 246, 0.37)"
         stroke-width="1.4"  
         fill="none"/>
 </svg>
@@ -99,7 +99,7 @@ function animateHexInteraction() {
             // Scale and shadow effect
             hex.el.style.transform = `scale(${1 + intensity * 0.5})`;
             hex.el.style.filter =
-                `drop-shadow(0 0 ${25 * intensity}px rgba(139,92,246,0.9))`;
+                `drop-shadow(0 0 ${25 * intensity}px rgb(138, 92, 246))`;
         } else {
             // Remove blink effect
             hex.el.classList.remove("blink");
