@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://www.tcpioneer.org/</loc>
@@ -121,4 +121,191 @@
     </image:image>
   </url>
 
+
+  <url>
+    <loc>https://www.tcpioneer.org/archive/photos/</loc>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-01.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-02.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-03.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-04.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-05.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-06.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-07.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-08.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-09.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-10.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-11.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-12.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-13.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-14.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-15.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-16.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-17.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-18.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-19.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-20.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-21.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-22.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-23.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-24.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-25.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-26.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-27.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-28.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-29.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-30.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-31.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-32.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-33.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-34.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-35.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-36.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-37.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-38.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-39.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-40.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-41.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-42.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-43.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-44.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-45.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-46.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-47.jpeg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-48.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-49.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/archive-photos/ap-50.jpg</image:loc>
+    </image:image>
+
+  </url>
+
+  <url>
+    <loc>https://www.tcpioneer.org/archive/websites/</loc>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/websites/tcpioneer-v1.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/websites/tcpioneer-v2.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/websites/tcpioneer-v3.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/websites/tcpioneer-v4.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.tcpioneer.org/images/websites/tcpioneer-v5.png</image:loc>
+    </image:image>
+
+  </url>
 </urlset>

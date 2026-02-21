@@ -4,83 +4,100 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.tcpioneer.org/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- About Section -->
   <url>
     <loc>https://www.tcpioneer.org/about/organization/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/about/service/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/about/event/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/about/team/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- Resources -->
   <url>
     <loc>https://www.tcpioneer.org/resources/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/resources/guides/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/resources/blogs/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/resources/tools/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/resources/roadmaps/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Archive Section -->
+  <url>
+    <loc>https://www.tcpioneer.org/archive/</loc>
+    <lastmod>2026-02-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tcpioneer.org/archive/websites/</loc>
+    <lastmod>2026-02-20</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.tcpioneer.org/archive/photos/</loc>
+    <lastmod>2026-02-20</lastmod>
+    <priority>0.75</priority>
   </url>
 
   <!-- Utility Pages -->
   <url>
     <loc>https://www.tcpioneer.org/faq/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/contact/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/joinus/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/terms/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.tcpioneer.org/privacy/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <priority>0.5</priority>
   </url>
 
