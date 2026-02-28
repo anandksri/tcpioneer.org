@@ -889,6 +889,94 @@ body {
     box-shadow: var(--violet-glow);
 }
 
+/* more from tcp  */
+
+/* TOOL CARD */
+.tool-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.7s all ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* GLOW BORDER EFFECT */
+.tool-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+
+    background: linear-gradient(120deg,
+            transparent,
+            #8b5cf6,
+            #22d3ee,
+            transparent);
+
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    z-index: -1;
+}
+
+/* INNER BACKGROUND (keeps content clean) */
+.tool-card::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #111118;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+/* HOVER TRIGGER */
+.tool-card:hover::before {
+    opacity: 1;
+    animation: borderFlow 3s linear infinite;
+    filter: blur(2px);
+}
+
+
+@keyframes borderFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+/* LINK */
+.tool-link {
+    color: #8b5cf6;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* LINK HOVER */
+.tool-link:hover {
+    color: white;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+    letter-spacing: 0.5px;
+}
+
+/* ICON SIZE */
+[data-lucide] {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+}
+
+
 /* collaboration scroll */
 .partners-section {
   padding: 100px 20px;

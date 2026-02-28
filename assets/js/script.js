@@ -99,7 +99,7 @@ function animateHexInteraction() {
             // Scale and shadow effect
             hex.el.style.transform = `scale(${1 + intensity * 0.5})`;
             hex.el.style.filter =
-                `drop-shadow(0 0 ${25 * intensity}px rgb(138, 92, 246))`;
+                `drop-shadow(0 0 ${25 * intensity}px rgba(139,92,246,0.9))`;
         } else {
             // Remove blink effect
             hex.el.classList.remove("blink");
