@@ -1,10 +1,10 @@
-# The Cyber Pioneer
+# TC Pioneer
 
-The Cyber Pioneer is a cybersecurity community and learning platform focused on practical security knowledge, resources, and hands-on learning.
+TC Pioneer is a cybersecurity community and learning platform focused on practical security knowledge, resources, and hands-on learning.
 
 ## About
 
-This repository contains the website and supporting resources for The Cyber Pioneer. The goal is to make cybersecurity easier to learn through practical content, useful resources, and community-driven projects.
+This repository contains the website and supporting resources for TC Pioneer. The goal is to make cybersecurity easier to learn through practical content, useful resources, and community-driven projects.
 
 ## What you can find here
 
@@ -27,7 +27,7 @@ Use the project files and configuration provided in the repository to run the si
 
 ## Project
 
-The Cyber Pioneer is part of my broader work in cybersecurity education, security research, and software development.
+TC Pioneer is part of my broader work in cybersecurity education, security research, and software development.
 
 ## Contributing
 
@@ -40,4 +40,3 @@ See the repository license and individual project files for applicable licensing
 ## Author
 
 Anand Keshari
-
