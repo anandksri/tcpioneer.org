@@ -10,13 +10,13 @@
     <title>Cybersecurity Services | TC Pioneer</title>
     <meta name="description"
         content="TC Pioneer empowers future cybersecurity leaders through ethical hacking education, cybersecurity tools, and cyber awareness programs.">
-    <link rel="canonical" href="https://tcpioneer.org/about/service">
+    <link rel="canonical" href="https://tcpioneer.org/about/services/">
 
     <link rel="icon" href="../../favicon/favicon.ico" type="image/x-icon">
 
     <meta property="og:title" content="Cybersecurity Services | TC Pioneer">
     <meta property="og:description" content="Cybersecurity education and awareness by TC Pioneer.">
-    <meta property="og:url" content="https://tcpioneer.org/about/service">
+    <meta property="og:url" content="https://tcpioneer.org/about/services/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://tcpioneer.org/images/tcp-logo.png">
 
@@ -61,17 +61,18 @@
         <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
             <div class="logo">TC@Pioneer</div>
 
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu"
+                aria-controls="nav-links" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="/">Home</a></li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">About</a>
+                    <button type="button" class="dropdown-toggle" aria-expanded="false">About</button>
                     <ul class="dropdown-menu">
                         <li><a href="../../about/organization/">Organization</a></li>
                         <li><a href="../../about/services/">Services</a></li>
@@ -81,7 +82,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Resources</a>
+                    <button type="button" class="dropdown-toggle" aria-expanded="false">Resources</button>
                     <ul class="dropdown-menu">
                         <li><a href="../../resources/roadmaps/">Roadmaps</a></li>
                         <li><a href="../../resources/guides/">Guides</a></li>
@@ -90,136 +91,135 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Archive</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../archive/websites/">Websites</a></li>
-                        <li><a href="../../archive/photos/">Photos</a></li>
-                    </ul>
-                </li>
-
                 <li><a href="../../faq/">FAQ</a></li>
                 <li><a href="../../contact/">Contact</a></li>
+                <li class="mobile-nav-login"><a href="../../login/">Login</a></li>
 
             </ul>
 
             <div class="nav-cta desktop-only">
-                <a href="../../joinus/" class="join-btn">Join Us</a>
+                <a href="../../login/" class="join-btn">Login</a>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="pt-20">
+    <main class="relative pt-20">
 
-        <section class="max-w-7xl mx-auto px-6 pb-20">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 sm:pb-28">
 
-            <div class="text-center pt-20 pb-16">
-                <h1 class="text-4xl md:text-5xl font-light text-white mb-4">
+            <div class="text-center pt-16 sm:pt-20 pb-12 sm:pb-16">
+                <p class="text-violet-400 tracking-[0.3em] uppercase text-xs mb-4">Learn, build, and connect</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-5">
                     Our Services
                 </h1>
-                <p class="text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-400 leading-relaxed max-w-3xl mx-auto">
                     We provide cybersecurity education, technical services, and personal support —
                     all in one platform to empower students, schools, and communities.
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
                 <!-- Card Template -->
-                <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md
-        transition-all duration-300 ease-out
-        hover:border-violet-400/40
-        hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]
-        hover:scale-[1.03]
-        text-center">
+                <div class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
 
-                    <div class="neon-icon mx-auto mb-5">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3 class="text-xl text-white mb-3">Workshops & Bootcamps</h3>
-                    <p class="text-gray-400 text-sm">
+                    <h2 class="text-xl text-white mb-3">Workshops & Bootcamps</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">
                         Hands-on sessions on ethical hacking, forensics, and cyber defense.
                     </p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-bullhorn"></i></div>
-                    <h3 class="text-xl text-white mb-3">Awareness Campaigns</h3>
-                    <p class="text-gray-400 text-sm">Cyber safety drives in schools and colleges.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
+                    <h2 class="text-xl text-white mb-3">Awareness Campaigns</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Cyber safety drives for schools and colleges.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-flag"></i></div>
-                    <h3 class="text-xl text-white mb-3">CTF Competitions</h3>
-                    <p class="text-gray-400 text-sm">Gamified hacking challenges.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-flag"></i></div>
+                    <h2 class="text-xl text-white mb-3">CTF Competitions</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Practice security skills through capture-the-flag challenges.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-users-cog"></i></div>
-                    <h3 class="text-xl text-white mb-3">Community Meetups</h3>
-                    <p class="text-gray-400 text-sm">Networking & cyber events.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
+                    <h2 class="text-xl text-white mb-3">Community Meetups</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Connect and share knowledge at cybersecurity events.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-handshake"></i></div>
-                    <h3 class="text-xl text-white mb-3">Institutional Partnerships</h3>
-                    <p class="text-gray-400 text-sm">Cyber programs for schools.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+                    <h2 class="text-xl text-white mb-3">Institutional Partnerships</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Collaborate on cybersecurity programs for schools.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-globe"></i></div>
-                    <h3 class="text-xl text-white mb-3">Online Resources</h3>
-                    <p class="text-gray-400 text-sm">Free tools & guides.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-globe"></i></div>
+                    <h2 class="text-xl text-white mb-3">Online Resources</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Explore free cybersecurity tools and guides.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-code"></i></div>
-                    <h3 class="text-xl text-white mb-3">Web Development</h3>
-                    <p class="text-gray-400 text-sm">Secure modern websites.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-code"></i></div>
+                    <h2 class="text-xl text-white mb-3">Web Development</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Build modern websites with security in mind.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-video"></i></div>
-                    <h3 class="text-xl text-white mb-3">Video Editing</h3>
-                    <p class="text-gray-400 text-sm">Campaign & event videos.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-video"></i></div>
+                    <h2 class="text-xl text-white mb-3">Video Editing</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Create videos for campaigns and events.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-image"></i></div>
-                    <h3 class="text-xl text-white mb-3">Photo Editing</h3>
-                    <p class="text-gray-400 text-sm">Posters & creatives.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-image"></i></div>
+                    <h2 class="text-xl text-white mb-3">Photo Editing</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Design posters and creative visuals.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="text-xl text-white mb-3">Personal Cyber Support</h3>
-                    <p class="text-gray-400 text-sm">Help with hacks & abuse.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                    <h2 class="text-xl text-white mb-3">Personal Cyber Support</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Get support with hacking incidents and online abuse.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-users"></i></div>
-                    <h3 class="text-xl text-white mb-3">Cyber Clubs Setup</h3>
-                    <p class="text-gray-400 text-sm">Build student communities.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-users"></i></div>
+                    <h2 class="text-xl text-white mb-3">Cyber Clubs Setup</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Build student communities around cybersecurity.</p>
                 </div>
 
                 <div
-                    class="group p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:scale-[1.03] transition text-center">
-                    <div class="neon-icon mx-auto mb-5"><i class="fas fa-certificate"></i></div>
-                    <h3 class="text-xl text-white mb-3">Certification Programs</h3>
-                    <p class="text-gray-400 text-sm">Short-term cyber courses.</p>
+                    class="group glow-card p-6 sm:p-8 rounded-2xl border border-white/10 text-center">
+                    <div class="icon-badge mx-auto mb-5" aria-hidden="true"><i class="fas fa-certificate"></i></div>
+                    <h2 class="text-xl text-white mb-3">Certification Programs</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">Explore short-term cybersecurity courses.</p>
                 </div>
 
+            </div>
+
+            <div class="text-center mt-16 sm:mt-20">
+                <h2 class="text-2xl sm:text-3xl text-white mb-3">Let's work together</h2>
+                <p class="text-gray-400 max-w-xl mx-auto mb-7">
+                    Interested in a program or service? Get in touch with the TC Pioneer team.
+                </p>
+                <a href="../../contact/" class="inline-block px-8 py-3 rounded-lg bg-violet-500 text-black font-semibold hover:bg-violet-400 transition">
+                    Contact Us
+                </a>
             </div>
         </section>
 
@@ -240,7 +240,7 @@
         <div class="relative z-10 max-w-7xl mx-auto">
 
             <!-- Main Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
                 <!-- Brand -->
                 <div class="lg:col-span-2">
@@ -253,7 +253,7 @@
                     </p>
 
                     <p class="mt-5 text-gray-500 text-sm">
-                        Birgunj, Nepal
+                        Kathmandu, Nepal
                     </p>
                 </div>
 
@@ -283,26 +283,7 @@
                     </ul>
                 </div>
 
-                <!-- Newsletter -->
-                <div>
-                    <p class="text-white text-xs tracking-[0.3em] uppercase mb-4">
-                        Stay Updated
-                    </p>
 
-                    <p class="text-gray-400 text-sm leading-relaxed mb-5">
-                        Cyber updates. No spam.
-                    </p>
-
-                    <form action="https://formspree.io/f/xvzzvlap" method="POST" class="flex gap-2">
-                        <input type="email" name="email" placeholder="Your email" required
-                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-violet-400 transition" />
-                        <button type="submit"
-                            class="px-5 py-3 rounded-lg bg-violet-500 text-black hover:bg-violet-400 transition shadow-[0_0_25px_rgba(139,92,246,0.6)]">
-                            →
-                        </button>
-                    </form>
-
-                </div>
 
             </div>
 

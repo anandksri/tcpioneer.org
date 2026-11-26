@@ -59,20 +59,21 @@
 
     <header>
         <!-- Navbar -->
-        <nav class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Main navigation">
             <div class="logo">TC@Pioneer</div>
 
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu"
+                aria-controls="nav-links" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="/">Home</a></li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">About</a>
+                    <button type="button" class="dropdown-toggle" aria-expanded="false">About</button>
                     <ul class="dropdown-menu">
                         <li><a href="about/organization/">Organization</a></li>
                         <li><a href="about/services/">Services</a></li>
@@ -82,7 +83,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Resources</a>
+                    <button type="button" class="dropdown-toggle" aria-expanded="false">Resources</button>
                     <ul class="dropdown-menu">
                         <li><a href="resources/roadmaps/">Roadmaps</a></li>
                         <li><a href="resources/guides/">Guides</a></li>
@@ -91,21 +92,14 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Archive</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="archive/websites/">Websites</a></li>
-                        <li><a href="archive/photos/">Photos</a></li>
-                    </ul>
-                </li>
-
                 <li><a href="faq/">FAQ</a></li>
                 <li><a href="contact/">Contact</a></li>
+                <li class="mobile-nav-login"><a href="login/">Login</a></li>
 
             </ul>
 
             <div class="nav-cta desktop-only">
-                <a href="joinus/" class="join-btn">Join Us</a>
+                <a href="login/" class="join-btn">Login</a>
             </div>
         </nav>
     </header>
@@ -123,14 +117,13 @@
             <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
 
                 <!-- SHIELD (TOP on mobile, RIGHT on desktop, CENTERED) -->
-                <div class="shield-stage 
-                    order-1 lg:order-2 
+                <div class="shield-stage
+                    order-1 lg:order-2
                     flex justify-center items-center
                     w-full
-                    mx-auto
-                    scale-[0.75] sm:scale-[0.85] md:scale-100">
+                    mx-auto">
 
-                    <div class="relative flex justify-center items-center">
+                    <div class="shield-visual relative flex justify-center items-center">
 
                         <!-- Orbit Rings (VISIBLE ON MOBILE TOO) -->
                         <div class="orbit one"></div>
@@ -190,7 +183,7 @@
                         </a>
 
                         <a href="/joinus/"
-                            class="block sm:hidden px-6 py-2.5 rounded-lg border border-white/10 text-white hover:border-violet-400 hover:text-violet-400 transition backdrop-blur-md">
+                            class="px-6 py-2.5 sm:px-8 sm:py-3 rounded-lg border border-white/10 text-white hover:border-violet-400 hover:text-violet-400 transition backdrop-blur-md">
                             Join Us
                         </a>
                     </div>
@@ -258,11 +251,11 @@
 
 
         <!-- mission -->
-        <section class="relative py-28 px-6 overflow-hidden">
+        <section class="relative py-16 sm:py-28 px-4 sm:px-6 overflow-hidden">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(139,92,246,0.12),transparent_60%)]">
             </div>
 
-            <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
 
                 <div>
                     <!-- Section Tag -->
@@ -304,11 +297,11 @@
         </section>
 
         <!-- about us -->
-        <section class="relative py-28 px-6 bg-black/40 overflow-hidden">
+        <section class="relative py-16 sm:py-28 px-4 sm:px-6 bg-black/40 overflow-hidden">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(139,92,246,0.10),transparent_60%)]">
             </div>
 
-            <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
 
                 <!-- Image -->
                 <div class="relative order-2 md:order-1 flex justify-center">
@@ -373,7 +366,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 
                     <!-- Tool 1 -->
-                    <a href="https://anandksri.github.io/staysafe-online/" target="_blank" class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <a href="https://anandksri.github.io/staysafe-online/" target="_blank" class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                        hover:border-violet-400/40 transition
                        bg-white/0 hover:bg-white/[0.02]
                        backdrop-blur-md">
@@ -388,7 +381,7 @@
                     </a>
 
                     <!-- Tool 2 -->
-                    <a href="https://anandksri.github.io/password-guardian/" target="_blank" class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <a href="https://anandksri.github.io/password-guardian/" target="_blank" class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                        hover:border-violet-400/40 transition
                        bg-white/0 hover:bg-white/[0.02]
                        backdrop-blur-md">
@@ -403,7 +396,7 @@
                     </a>
 
                     <!-- Tool 3 -->
-                    <a href="https://anandksri.github.io/chatgpt-cheatsheet/" target="_blank" class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <a href="https://anandksri.github.io/chatgpt-cheatsheet/" target="_blank" class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                        hover:border-violet-400/40 transition
                        bg-white/0 hover:bg-white/[0.02]
                        backdrop-blur-md">
@@ -418,7 +411,7 @@
                     </a>
 
                     <!-- Tool 4 -->
-                    <a href="https://github.com/anandksri/cybersecurity-roadmap" target="_blank" class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <a href="https://github.com/anandksri/cybersecurity-roadmap" target="_blank" class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                        hover:border-violet-400/40 transition
                        bg-white/0 hover:bg-white/[0.02]
                        backdrop-blur-md">
@@ -463,18 +456,16 @@
                 </p>
 
                 <!-- Infinite Circular Slider -->
-                <div class="w-full overflow-hidden relative">
+                <div class="w-full overflow-hidden relative py-4">
                     <div id="partnerTrack" class="flex gap-10 items-center will-change-transform">
 
                         <!-- Partner Card -->
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/y3ti@sec.png" loading="lazy"
                                     alt="y3ti@sec - CTF partner of TC Pioneer" class="h-16 object-contain mb-2" />
                             </div>
@@ -483,14 +474,12 @@
                             <span class="text-xs text-gray-400">CTF Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/global-college.png" loading="lazy"
                                     alt="Global Business College - Program Partner of TC Pioneer"
                                     class="h-16 object-contain mb-2" />
@@ -500,14 +489,12 @@
                             <span class="text-xs text-gray-400">Program Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/vidyasadansecschool.png" loading="lazy"
                                     alt="Vidya Sadan - Program Partner of TC Pioneer"
                                     class="h-16 object-contain mb-2" />
@@ -517,14 +504,12 @@
                             <span class="text-xs text-gray-400">Program Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/zerodayarena.png" loading="lazy"
                                     alt="Zero Day Arena - CTF partner of TC Pioneer" class="h-16 object-contain mb-2" />
                             </div>
@@ -533,14 +518,12 @@
                             <span class="text-xs text-gray-400">CTF Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/ku-it-meet.png" loading="lazy"
                                     alt="KU IT Meet - Community Partner of TC Pioneer"
                                     class="h-16 object-contain mb-2" />
@@ -550,14 +533,12 @@
                             <span class="text-xs text-gray-400">Community Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/birgunj-institute-of-technology.png" loading="lazy"
                                     alt="Birgunj Institute of Technology - Program Partner of TC Pioneer"
                                     class="h-16 object-contain mb-2" />
@@ -568,14 +549,12 @@
                         </div>
 
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/oasis-secondary-school.png" loading="lazy"
                                     alt="Oasis Secondary School logo" class="h-16 object-contain mb-2" />
                             </div>
@@ -584,14 +563,12 @@
                             <span class="text-xs text-gray-400">program Partner</span>
                         </div>
 
-                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10 
+                        <div class="group min-w-[240px] p-6 rounded-2xl border border-white/10
                     bg-white/[0.03] backdrop-blur-md
                     flex flex-col items-center justify-center text-center gap-2
-                    transition-all duration-300 ease-out
-                    hover:border-violet-400/60
-                    hover:shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+                    transition-colors duration-300 ease-out">
 
-                            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-1">
+                            <div >
                                 <img src="images/partners/WCMT-1.png" loading="lazy"
                                     alt="WCMT - Program Partner of TC Pioneer" class="h-16 object-contain mb-2" />
                             </div>
@@ -640,7 +617,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 
                     <!-- Card 1 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -656,7 +633,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -672,7 +649,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -687,7 +664,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -702,7 +679,7 @@
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -717,7 +694,7 @@
                     </div>
 
                     <!-- Card 6 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         hover:border-violet-400/40 transition
                         bg-white/0 hover:bg-white/[0.02]
                         backdrop-blur-md">
@@ -755,7 +732,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
                     <!-- Testimonial 1 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -770,7 +747,7 @@
                     </div>
 
                     <!-- Testimonial 2 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -785,7 +762,7 @@
                     </div>
 
                     <!-- Testimonial 3 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -800,7 +777,7 @@
                     </div>
 
                     <!-- Testimonial 4 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -815,7 +792,7 @@
                     </div>
 
                     <!-- Testimonial 5 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -830,7 +807,7 @@
                     </div>
 
                     <!-- Testimonial 6 -->
-                    <div class="group p-6 sm:p-10 rounded-2xl border border-white/10 
+                    <div class="group glow-card p-6 sm:p-10 rounded-2xl border border-white/10
                         bg-white/[0.02] backdrop-blur-md
                         hover:border-violet-400/40 transition">
 
@@ -861,7 +838,7 @@
         <div class="relative z-10 max-w-7xl mx-auto">
 
             <!-- Main Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
                 <!-- Brand -->
                 <div class="lg:col-span-2">
@@ -874,7 +851,7 @@
                     </p>
 
                     <p class="mt-5 text-gray-500 text-sm">
-                        Birgunj, Nepal
+                        Kathmandu, Nepal
                     </p>
                 </div>
 
@@ -904,27 +881,6 @@
                     </ul>
                 </div>
 
-                <!-- Newsletter -->
-                <div>
-                    <p class="text-white text-xs tracking-[0.3em] uppercase mb-4">
-                        Stay Updated
-                    </p>
-
-                    <p class="text-gray-400 text-sm leading-relaxed mb-5">
-                        Cyber updates. No spam.
-                    </p>
-
-                    <form action="https://formspree.io/f/xvzzvlap" method="POST" class="flex gap-2">
-                        <input type="email" name="email" placeholder="Your email" required
-                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-violet-400 transition" />
-                        <button type="submit"
-                            class="px-5 py-3 rounded-lg bg-violet-500 text-black hover:bg-violet-400 transition shadow-[0_0_25px_rgba(139,92,246,0.6)]">
-                            →
-                        </button>
-                    </form>
-
-                </div>
-
             </div>
 
             <!-- Divider -->
@@ -943,7 +899,7 @@
                         <a href="/contact" class="hover:text-violet-400 transition">Contact</a>
                     </div>
 
-                    <div class="flex gap-6 text-gray-400 text-xs tracking-[0.3em] uppercase">
+                    <div class="flex flex-wrap justify-center gap-4 text-gray-400 text-xs tracking-[0.15em] uppercase">
                         <a href="https://www.instagram.com/tcpioneerorg"
                             class="hover:text-violet-400 transition">Instagram</a>
                         <a href="https://www.linkedin.com/company/tcpioneerorg"

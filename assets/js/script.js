@@ -112,38 +112,75 @@ function animateHexInteraction() {
     requestAnimationFrame(animateHexInteraction);
 }
 
-animateHexInteraction();
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    animateHexInteraction();
+}
 
 // navbar 
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-const navItems = navLinks.querySelectorAll("a");
+const mobileNavQuery = window.matchMedia("(max-width: 900px)");
+const navItems = navLinks.querySelectorAll("a:not(.dropdown-toggle)");
 
-// Hamburger toggle
+function setMenuOpen(isOpen) {
+    navLinks.classList.toggle("active", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    hamburger.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    navLinks.inert = mobileNavQuery.matches && !isOpen;
+
+    if (!isOpen) {
+        dropdownToggles.forEach(toggle => {
+            toggle.parentElement.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+        });
+    }
+}
+
+setMenuOpen(false);
+
 hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    setMenuOpen(hamburger.getAttribute("aria-expanded") !== "true");
 });
 
-// Dropdown toggle (mobile)
 dropdownToggles.forEach(toggle => {
-    toggle.addEventListener("click", (e) => {
-        if (window.innerWidth <= 900) {
-            e.preventDefault();
-            toggle.parentElement.classList.toggle("active");
+    toggle.addEventListener("click", event => {
+        if (toggle.matches("a")) {
+            event.preventDefault();
+        }
+
+        const isOpen = toggle.parentElement.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+});
+
+navItems.forEach(link => {
+    link.addEventListener("click", () => {
+        if (mobileNavQuery.matches) {
+            setMenuOpen(false);
         }
     });
 });
 
-// Auto close menu ONLY for real links (not dropdown toggles)
-navItems.forEach(link => {
-    link.addEventListener("click", () => {
-        if (
-            window.innerWidth <= 900 &&
-            !link.classList.contains("dropdown-toggle")
-        ) {
-            navLinks.classList.remove("active");
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        if (mobileNavQuery.matches && hamburger.getAttribute("aria-expanded") === "true") {
+            setMenuOpen(false);
+            hamburger.focus();
         }
+
+        dropdownToggles.forEach(toggle => {
+            toggle.parentElement.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+        });
+    }
+});
+
+mobileNavQuery.addEventListener("change", () => {
+    setMenuOpen(false);
+    dropdownToggles.forEach(toggle => {
+        toggle.parentElement.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
     });
 });
 
@@ -179,8 +216,18 @@ window.addEventListener("load", () => {
     const line1 = document.getElementById("type-line-1");
     const line2 = document.getElementById("type-line-2");
 
+    if (!line1 || !line2) {
+        return;
+    }
+
     const text1 = "Securing the Future";
     const text2 = "Through Education";
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        line1.textContent = text1;
+        line2.textContent = text2;
+        return;
+    }
 
     hackerReveal(line1, text1, 35, 2, () => {
         setTimeout(() => {
@@ -203,46 +250,52 @@ tailwind.config = {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 //  shield animation
-const shield = document.querySelector(".cyber-shield");
+const shield = document.querySelector(".shield-visual");
 
-document.addEventListener("mousemove", (e) => {
-    const x = (window.innerWidth / 2 - e.clientX) / 25;
-    const y = (window.innerHeight / 2 - e.clientY) / 25;
+if (
+    shield &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+    document.addEventListener("pointermove", e => {
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
+        shield.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    });
 
-    shield.style.transform = `
-    rotateY(${x}deg)
-    rotateX(${y}deg)
-    translateY(-12px)
-  `;
-});
+    document.addEventListener("pointerleave", () => {
+        shield.style.transform = "";
+    });
+}
 
 // collaboration scroll animation
 const track = document.getElementById("partnerTrack");
-let speed = 0.4;
-let paused = false;
+if (track) {
+    let speed = 0.4;
+    let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Duplicate items for infinite loop
-track.innerHTML += track.innerHTML;
+    track.innerHTML += track.innerHTML;
 
-let x = 0;
+    let x = 0;
 
-function loop() {
-    if (!paused) {
-        x -= speed;
+    function loop() {
+        if (!paused) {
+            x -= speed;
 
-        if (Math.abs(x) >= track.scrollWidth / 2) {
-            x = 0;
+            if (Math.abs(x) >= track.scrollWidth / 2) {
+                x = 0;
+            }
+
+            track.style.transform = `translateX(${x}px)`;
         }
-
-        track.style.transform = `translateX(${x}px)`;
+        requestAnimationFrame(loop);
     }
-    requestAnimationFrame(loop);
+
+    loop();
+
+    track.addEventListener("mouseenter", () => paused = true);
+    track.addEventListener("mouseleave", () => paused = false);
 }
-
-loop();
-
-track.addEventListener("mouseenter", () => paused = true);
-track.addEventListener("mouseleave", () => paused = false);
 
 // join us page - FAQ accordion
 function toggleFAQ(btn) {
