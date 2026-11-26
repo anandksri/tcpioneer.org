@@ -1,4 +1,5 @@
-const AUTH_CONFIG_URL = "/api/config";
+const API_ORIGIN = "https://tcpioneerorg.vercel.app";
+const AUTH_CONFIG_URL = `${API_ORIGIN}/api/config`;
 let authClientPromise;
 
 function setAuthMessage(message, type = "error") {
@@ -28,9 +29,7 @@ async function getAuthClient() {
             if (contentType.includes("application/json")) {
                 config = await response.json();
             } else {
-                throw new Error(
-                    "Authentication is unavailable on this static preview. Deploy to Vercel and configure Supabase."
-                );
+                throw new Error("Authentication is temporarily unavailable. Please try again.");
             }
 
             if (!response.ok) {
@@ -116,47 +115,60 @@ async function protectResourcePage() {
     }
 }
 
-function bindLoginPage(client) {
+function bindLoginPage() {
     const loginPage = document.querySelector("[data-login-page]");
     if (!loginPage) return;
 
     const redirectTarget = safeRedirect(new URLSearchParams(window.location.search).get("redirect"));
+    const credentialsStep = loginPage.querySelector('[data-login-step="credentials"]');
+    const verificationStep = loginPage.querySelector('[data-login-step="verification"]');
+    const signupStep = loginPage.querySelector("[data-signup-step]");
+
+    function showLoginStep(step) {
+        credentialsStep.hidden = step !== "credentials";
+        verificationStep.hidden = step !== "verification";
+        signupStep.hidden = step !== "signup";
+        setAuthMessage("");
+    }
 
     loginPage.querySelector("#password-form").addEventListener("submit", async event => {
         event.preventDefault();
-        setAuthMessage("Signing in...", "info");
+        setAuthMessage("Checking your account details...", "info");
+        const submitButton = event.submitter;
+        submitButton.disabled = true;
         const identifier = event.currentTarget.elements.identifier.value.trim();
         const password = event.currentTarget.elements.password.value;
 
-        const response = await fetch("/api/auth/password", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ identifier, password })
-        });
-        const result = await response.json();
+        try {
+            const response = await fetch(`${API_ORIGIN}/api/auth/password`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ identifier, password })
+            });
+            const result = await response.json();
 
-        if (!response.ok) {
-            setAuthMessage(result.error || "Unable to sign in.");
-            return;
+            if (!response.ok) {
+                setAuthMessage(result.error || "Unable to sign in.");
+                return;
+            }
+
+            loginPage.querySelector("#otp-email").value = result.email;
+            loginPage.querySelector("[data-otp-destination]").textContent = result.maskedEmail;
+            showLoginStep("verification");
+            setAuthMessage("A verification code was sent to your email.", "success");
+            loginPage.querySelector("#otp-token").focus();
+        } catch {
+            setAuthMessage("Unable to contact the login service. Please try again.");
+        } finally {
+            submitButton.disabled = false;
         }
-
-        const { error } = await client.auth.setSession({
-            access_token: result.access_token,
-            refresh_token: result.refresh_token
-        });
-
-        if (error) {
-            setAuthMessage(error.message);
-            return;
-        }
-
-        window.location.assign(redirectTarget);
     });
 
     loginPage.querySelector("#signup-form").addEventListener("submit", async event => {
         event.preventDefault();
         setAuthMessage("Creating your account...", "info");
         const form = event.currentTarget;
+        const client = await getAuthClient();
 
         const { error } = await client.auth.signUp({
             email: form.elements.email.value.trim(),
@@ -173,33 +185,11 @@ function bindLoginPage(client) {
         );
     });
 
-    loginPage.querySelector("#otp-request-form").addEventListener("submit", async event => {
-        event.preventDefault();
-        setAuthMessage("Sending your email code...", "info");
-        const email = event.currentTarget.elements.email.value.trim();
-        loginPage.querySelector("#otp-email").value = email;
-
-        const { error } = await client.auth.signInWithOtp({
-            email,
-            options: {
-                shouldCreateUser: true,
-                emailRedirectTo: `${window.location.origin}/login/?redirect=${encodeURIComponent(redirectTarget)}`
-            }
-        });
-
-        if (error) {
-            setAuthMessage(error.message);
-            return;
-        }
-
-        loginPage.querySelector("[data-otp-verify]").hidden = false;
-        setAuthMessage("Enter the 6-digit code sent to your email.", "success");
-    });
-
     loginPage.querySelector("#otp-verify-form").addEventListener("submit", async event => {
         event.preventDefault();
         setAuthMessage("Verifying code...", "info");
         const form = event.currentTarget;
+        const client = await getAuthClient();
         const { error } = await client.auth.verifyOtp({
             email: form.elements.email.value.trim(),
             token: form.elements.token.value.trim(),
@@ -217,18 +207,51 @@ function bindLoginPage(client) {
     loginPage.querySelectorAll("[data-oauth-provider]").forEach(button => {
         button.addEventListener("click", async () => {
             setAuthMessage(`Opening ${button.dataset.oauthProvider}...`, "info");
+            const client = await getAuthClient();
             const { error } = await client.auth.signInWithOAuth({
                 provider: button.dataset.oauthProvider,
                 options: {
                     redirectTo: `${window.location.origin}/login/?redirect=${encodeURIComponent(redirectTarget)}`
                 }
             });
+
             if (error) setAuthMessage(error.message);
         });
     });
 
-    client.auth.getSession().then(({ data: { session } }) => {
-        if (session) {
+    loginPage.querySelector("[data-show-signup]").addEventListener("click", () => {
+        showLoginStep("signup");
+        loginPage.querySelector("#signup-username").focus();
+    });
+
+    loginPage.querySelectorAll("[data-back-to-login]").forEach(button => {
+        button.addEventListener("click", () => showLoginStep("credentials"));
+    });
+
+    loginPage.querySelector("#sign-out").addEventListener("click", async () => {
+        const client = await getAuthClient();
+        const { error } = await client.auth.signOut();
+        if (error) {
+            setAuthMessage(error.message);
+            return;
+        }
+        window.location.reload();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    if (!document.querySelector("[data-login-page], main[data-auth-required]")) return;
+
+    bindLoginPage();
+
+    try {
+        const client = await getAuthClient();
+        await protectResourcePage();
+        await showAuthenticatedNavigation(client);
+
+        const loginPage = document.querySelector("[data-login-page]");
+        const { data: { session } } = await client.auth.getSession();
+        if (loginPage && session) {
             const requestedRedirect = new URLSearchParams(window.location.search).get("redirect");
             if (requestedRedirect) {
                 window.location.assign(safeRedirect(requestedRedirect));
@@ -239,46 +262,6 @@ function bindLoginPage(client) {
             loginPage.querySelector("[data-auth-forms]").hidden = true;
             loginPage.querySelector("[data-account-email]").textContent = session.user.email || "member";
         }
-    });
-
-    loginPage.querySelector("#sign-out").addEventListener("click", async () => {
-        const { error } = await client.auth.signOut();
-        if (error) {
-            setAuthMessage(error.message);
-            return;
-        }
-        window.location.reload();
-    });
-}
-
-function bindLoginTabs() {
-    const loginPage = document.querySelector("[data-login-page]");
-    if (!loginPage) return;
-
-    const tabs = [...loginPage.querySelectorAll("[data-auth-tab]")];
-    const panels = [...loginPage.querySelectorAll("[data-auth-panel]")];
-
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            tabs.forEach(item => item.setAttribute("aria-selected", String(item === tab)));
-            panels.forEach(panel => {
-                panel.hidden = panel.dataset.authPanel !== tab.dataset.authTab;
-            });
-            setAuthMessage("");
-        });
-    });
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-    if (!document.querySelector("[data-login-page], main[data-auth-required]")) return;
-
-    bindLoginTabs();
-
-    try {
-        const client = await getAuthClient();
-        bindLoginPage(client);
-        await protectResourcePage();
-        await showAuthenticatedNavigation(client);
 
         client.auth.onAuthStateChange(() => {
             protectResourcePage().catch(error => setAuthMessage(error.message));

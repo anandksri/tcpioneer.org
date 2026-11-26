@@ -1,4 +1,17 @@
+function allowBrowserPreview(response) {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
 export default async function handler(request, response) {
+    allowBrowserPreview(response);
+
+    if (request.method === "OPTIONS") {
+        response.status(204).end();
+        return;
+    }
+
     if (request.method !== "POST") {
         response.status(405).json({ error: "Method not allowed" });
         return;
@@ -66,15 +79,34 @@ export default async function handler(request, response) {
         body: JSON.stringify({ email, password })
     });
 
-    const loginResult = await loginResponse.json();
-
     if (!loginResponse.ok) {
         response.status(401).json({ error: "Incorrect username/email or password." });
         return;
     }
 
+    const otpResponse = await fetch(`${supabaseUrl}/auth/v1/otp`, {
+        method: "POST",
+        headers: {
+            apikey: anonKey,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email,
+            create_user: false
+        })
+    });
+
+    if (!otpResponse.ok) {
+        console.error("Supabase OTP request failed", otpResponse.status);
+        response.status(502).json({ error: "Your password is correct, but the verification code could not be sent. Try again." });
+        return;
+    }
+
+    const [localPart, domain] = email.split("@");
+    const maskedLocal = `${localPart.slice(0, 2)}${"*".repeat(Math.max(2, localPart.length - 2))}`;
+
     response.status(200).json({
-        access_token: loginResult.access_token,
-        refresh_token: loginResult.refresh_token
+        email,
+        maskedEmail: `${maskedLocal}@${domain}`
     });
 }

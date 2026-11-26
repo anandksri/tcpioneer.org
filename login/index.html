@@ -62,7 +62,7 @@
     </header>
 
     <main class="relative min-h-screen flex items-center px-4 sm:px-6 pt-32 pb-20" data-login-page>
-        <section class="w-full max-w-2xl mx-auto">
+        <section class="w-full max-w-xl mx-auto">
             <div class="auth-panel rounded-2xl border border-white/10">
                 <div class="auth-heading text-center">
                     <div class="mb-5 text-violet-400 text-3xl" aria-hidden="true">
@@ -74,62 +74,78 @@
                 </div>
 
                 <div data-auth-forms>
-                    <div class="auth-providers">
-                        <button type="button" class="auth-provider" data-oauth-provider="google">
-                            <i class="fa-brands fa-google" aria-hidden="true"></i>
-                            Continue with Google
-                        </button>
-                        <button type="button" class="auth-provider" data-oauth-provider="github">
-                            <i class="fa-brands fa-github" aria-hidden="true"></i>
-                            Continue with GitHub
-                        </button>
-                    </div>
-
-                    <div class="auth-divider"><span>or use your account</span></div>
-
-                    <div class="auth-tabs" role="tablist" aria-label="Login methods">
-                        <button type="button" role="tab" aria-selected="true" data-auth-tab="password">Password</button>
-                        <button type="button" role="tab" aria-selected="false" data-auth-tab="otp">Email code</button>
-                        <button type="button" role="tab" aria-selected="false" data-auth-tab="signup">Create account</button>
-                    </div>
-
-                    <form id="password-form" class="auth-form" data-auth-panel="password">
-                        <label for="password-identifier">Username or email</label>
-                        <input id="password-identifier" name="identifier" type="text" autocomplete="username" required>
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password"
-                            minlength="8" required>
-                        <button type="submit" class="auth-submit">Login</button>
-                    </form>
-
-                    <div data-auth-panel="otp" hidden>
-                        <form id="otp-request-form" class="auth-form">
-                            <label for="otp-request-email">Email</label>
-                            <input id="otp-request-email" name="email" type="email" autocomplete="email" required>
-                            <p class="auth-help">We will send a verification code from no-reply@tcpioneer.org.</p>
-                            <button type="submit" class="auth-submit">Send code</button>
+                    <section data-login-step="credentials">
+                        <div class="auth-step">
+                            <span>Step 1 of 2</span>
+                            <strong>Account details</strong>
+                        </div>
+                        <form id="password-form" class="auth-form">
+                            <label for="password-identifier">Username or email</label>
+                            <input id="password-identifier" name="identifier" type="text"
+                                autocomplete="username" placeholder="Enter your username or email" required>
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password"
+                                autocomplete="current-password" minlength="8" placeholder="Enter your password" required>
+                            <button type="submit" class="auth-submit">Continue to verification</button>
                         </form>
-                        <form id="otp-verify-form" class="auth-form auth-verify" data-otp-verify hidden>
-                            <label for="otp-token">6-digit code</label>
+
+                        <div class="auth-divider"><span>or continue with</span></div>
+                        <div class="auth-providers">
+                            <button type="button" class="auth-provider" data-oauth-provider="google">
+                                <i class="fa-brands fa-google" aria-hidden="true"></i>
+                                Google
+                            </button>
+                            <button type="button" class="auth-provider" data-oauth-provider="github">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                                GitHub
+                            </button>
+                        </div>
+                        <p class="auth-switch">
+                            New to TC Pioneer?
+                            <button type="button" data-show-signup>Create an account</button>
+                        </p>
+                    </section>
+
+                    <section data-login-step="verification" hidden>
+                        <div class="auth-step">
+                            <span>Step 2 of 2</span>
+                            <strong>Email verification</strong>
+                        </div>
+                        <p class="auth-otp-copy">
+                            Enter the 6-digit code sent to <strong data-otp-destination></strong>
+                            from no-reply@tcpioneer.org.
+                        </p>
+                        <form id="otp-verify-form" class="auth-form">
+                            <label for="otp-token">Verification code</label>
                             <input id="otp-email" name="email" type="hidden" required>
-                            <input id="otp-token" name="token" type="text" inputmode="numeric" pattern="[0-9]{6}"
-                                maxlength="6" autocomplete="one-time-code" required placeholder="000000">
+                            <input id="otp-token" class="auth-otp-input" name="token" type="text"
+                                inputmode="numeric" pattern="[0-9]{6}" maxlength="6"
+                                autocomplete="one-time-code" required placeholder="000000">
                             <button type="submit" class="auth-submit">Verify and login</button>
                         </form>
-                    </div>
+                        <button type="button" class="auth-back" data-back-to-login>
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                            Back to account details
+                        </button>
+                    </section>
 
-                    <form id="signup-form" class="auth-form" data-auth-panel="signup" hidden>
-                        <label for="signup-username">Username</label>
-                        <input id="signup-username" name="username" type="text" autocomplete="username"
-                            pattern="[A-Za-z0-9_.-]{3,30}" minlength="3" maxlength="30" required
-                            placeholder="Letters, numbers, dots, dashes">
-                        <label for="signup-email">Email</label>
-                        <input id="signup-email" name="email" type="email" autocomplete="email" required>
-                        <label for="signup-password">Password</label>
-                        <input id="signup-password" name="password" type="password" autocomplete="new-password"
-                            minlength="8" required>
-                        <button type="submit" class="auth-submit">Create account</button>
-                    </form>
+                    <section data-signup-step hidden>
+                        <h2 class="text-2xl text-white mb-2">Create your account</h2>
+                        <p class="text-gray-400 text-sm mb-6">Then confirm your email to continue.</p>
+                        <form id="signup-form" class="auth-form">
+                            <label for="signup-username">Username</label>
+                            <input id="signup-username" name="username" type="text" autocomplete="username"
+                                pattern="[A-Za-z0-9_.-]{3,30}" minlength="3" maxlength="30" required
+                                placeholder="Letters, numbers, dots, dashes">
+                            <label for="signup-email">Email</label>
+                            <input id="signup-email" name="email" type="email" autocomplete="email" required>
+                            <label for="signup-password">Password</label>
+                            <input id="signup-password" name="password" type="password" autocomplete="new-password"
+                                minlength="8" required>
+                            <button type="submit" class="auth-submit">Create account</button>
+                        </form>
+                        <button type="button" class="auth-back" data-back-to-login>Back to login</button>
+                    </section>
 
                     <p class="auth-message" data-auth-message aria-live="polite" hidden></p>
                 </div>
