@@ -40,29 +40,49 @@ export default async function handler(request, response) {
     }
 
     const normalizedIdentifier = identifier.trim().toLowerCase();
-    let email = normalizedIdentifier;
+    let email = normalizedIdentifier.includes("@") ? normalizedIdentifier : "";
 
     if (!normalizedIdentifier.includes("@")) {
+        const authHeaders = {
+            apikey: serviceRoleKey,
+            Authorization: `Bearer ${serviceRoleKey}`
+        };
         const lookupUrl = new URL("/rest/v1/profiles", supabaseUrl);
         lookupUrl.searchParams.set("select", "email");
         lookupUrl.searchParams.set("username", `eq.${normalizedIdentifier}`);
         lookupUrl.searchParams.set("limit", "1");
 
         const lookupResponse = await fetch(lookupUrl, {
-            headers: {
-                apikey: serviceRoleKey,
-                Authorization: `Bearer ${serviceRoleKey}`
-            }
+            headers: authHeaders
         });
 
-        if (!lookupResponse.ok) {
+        if (lookupResponse.ok) {
+            const profiles = await lookupResponse.json();
+            email = profiles[0]?.email;
+        }
+
+        if (!email) {
+            const adminLookup = await fetch(
+                `${supabaseUrl}/auth/v1/admin/users?page=1&per_page=1000`,
+                { headers: authHeaders }
+            );
+
+            if (adminLookup.ok) {
+                const { users = [] } = await adminLookup.json();
+                const matchedUser = users.find(
+                    user => String(user.user_metadata?.username || "").toLowerCase() === normalizedIdentifier
+                );
+                email = matchedUser?.email;
+            } else {
+                console.error("Supabase username fallback failed", adminLookup.status);
+            }
+        }
+
+        if (!email && !lookupResponse.ok) {
             console.error("Supabase profile lookup failed", lookupResponse.status);
             response.status(502).json({ error: "Unable to sign in right now. Please try again." });
             return;
         }
-
-        const profiles = await lookupResponse.json();
-        email = profiles[0]?.email;
     }
 
     if (!email) {
