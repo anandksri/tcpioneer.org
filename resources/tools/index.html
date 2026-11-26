@@ -103,7 +103,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="mt-10 pt-24 pb-20 bg-black">
+    <main data-auth-required class="mt-10 pt-24 pb-20 bg-black">
         <section class="max-w-6xl mx-auto px-4">
 
             <!-- Header -->
@@ -265,7 +265,7 @@
 
 
     <!-- footer -->
-    <footer class="relative px-6 pt-24 pb-12 overflow-hidden">
+    <footer class="site-footer relative px-6 pt-24 pb-12 overflow-hidden">
 
         <!-- Glass background -->
         <div class="absolute inset-0 bg-black/60 backdrop-blur-xl border-t border-white/10"></div>
@@ -359,6 +359,8 @@
     </footer>
 
     <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../assets/js/auth.js"></script>
 </body>
 
 </html>
