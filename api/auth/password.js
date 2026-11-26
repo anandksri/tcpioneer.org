@@ -32,9 +32,8 @@ export default async function handler(request, response) {
 
     const supabaseUrl = process.env.SUPABASE_URL;
     const anonKey = process.env.SUPABASE_ANON_KEY;
-    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !anonKey || !serviceRoleKey) {
+    if (!supabaseUrl || !anonKey) {
         response.status(503).json({ error: "Authentication is not configured yet." });
         return;
     }
@@ -43,46 +42,28 @@ export default async function handler(request, response) {
     let email = normalizedIdentifier.includes("@") ? normalizedIdentifier : "";
 
     if (!normalizedIdentifier.includes("@")) {
-        const authHeaders = {
-            apikey: serviceRoleKey,
-            Authorization: `Bearer ${serviceRoleKey}`
-        };
-        const lookupUrl = new URL("/rest/v1/profiles", supabaseUrl);
-        lookupUrl.searchParams.set("select", "email");
-        lookupUrl.searchParams.set("username", `eq.${normalizedIdentifier}`);
-        lookupUrl.searchParams.set("limit", "1");
-
-        const lookupResponse = await fetch(lookupUrl, {
-            headers: authHeaders
-        });
-
-        if (lookupResponse.ok) {
-            const profiles = await lookupResponse.json();
-            email = profiles[0]?.email;
-        }
-
-        if (!email) {
-            const adminLookup = await fetch(
-                `${supabaseUrl}/auth/v1/admin/users?page=1&per_page=1000`,
-                { headers: authHeaders }
-            );
-
-            if (adminLookup.ok) {
-                const { users = [] } = await adminLookup.json();
-                const matchedUser = users.find(
-                    user => String(user.user_metadata?.username || "").toLowerCase() === normalizedIdentifier
-                );
-                email = matchedUser?.email;
-            } else {
-                console.error("Supabase username fallback failed", adminLookup.status);
+        const lookupResponse = await fetch(
+            `${supabaseUrl}/rest/v1/rpc/resolve_login_email`,
+            {
+                method: "POST",
+                headers: {
+                    apikey: anonKey,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    p_username: normalizedIdentifier,
+                    p_password: password
+                })
             }
-        }
+        );
 
-        if (!email && !lookupResponse.ok) {
-            console.error("Supabase profile lookup failed", lookupResponse.status);
-            response.status(502).json({ error: "Unable to sign in right now. Please try again." });
+        if (!lookupResponse.ok) {
+            console.error("Supabase username verification failed", lookupResponse.status);
+            response.status(502).json({ error: "Unable to verify this account right now. Please try again." });
             return;
         }
+
+        email = await lookupResponse.json();
     }
 
     if (!email) {
