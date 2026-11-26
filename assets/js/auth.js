@@ -55,15 +55,21 @@ async function getAuthClient() {
 
 async function showAuthenticatedNavigation(client) {
     const { data: { session } } = await client.auth.getSession();
-    if (!session) return;
+    const accountPath = "/login/";
 
     document.querySelectorAll(".join-btn").forEach(link => {
-        link.textContent = "My Account";
-        link.href = "/login/";
+        link.textContent = session ? "My Account" : "Login";
+        link.href = accountPath;
+        if (session) {
+            link.setAttribute("aria-label", "My Account");
+        } else {
+            link.removeAttribute("aria-label");
+        }
     });
 
     document.querySelectorAll(".mobile-nav-login a").forEach(link => {
-        link.textContent = "My Account";
+        link.textContent = session ? "My Account" : "Login";
+        link.href = accountPath;
     });
 }
 
@@ -240,7 +246,19 @@ function bindLoginPage() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    if (!document.querySelector("[data-login-page], main[data-auth-required]")) return;
+    if (!document.querySelector("[data-login-page], main[data-auth-required]")) {
+        try {
+            const client = await getAuthClient();
+            await showAuthenticatedNavigation(client);
+            client.auth.onAuthStateChange(() => {
+                showAuthenticatedNavigation(client).catch(() => {});
+            });
+        } catch (error) {
+            // Authentication remains optional outside gated/member pages.
+            console.warn("Unable to update account navigation:", error);
+        }
+        return;
+    }
 
     bindLoginPage();
 
